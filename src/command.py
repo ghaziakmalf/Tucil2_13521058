@@ -7,20 +7,45 @@ def commandStart():
     print(LIGHT_RED + "1." + WHITE + " START")
     print(LIGHT_RED + "2." + WHITE + " EXIT")
 
+def commandAlgorithm():
+    print(WHITE     + "==========================================")
+    print(LIGHT_RED + "|             PICK ALGORITHM             |")
+    print(WHITE     + "==========================================")
+    print(LIGHT_RED + "1." + WHITE + " BRUTE FORCE")
+    print(LIGHT_RED + "2." + WHITE + " DIVIDE AND CONQUER")
+    print(LIGHT_RED + "3." + WHITE + " BOTH")
+
+def commandInputOption():
+    print(WHITE     + "==========================================")
+    print(LIGHT_RED + "|             INPUT OPTIONS              |")
+    print(WHITE     + "==========================================")
+    print(LIGHT_RED + "1." + WHITE + " RANDOM")
+    print(LIGHT_RED + "2." + WHITE + " MANUAL")
+
 def commandSave():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "|             SAVE SOLUTION?             |")
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "1." + WHITE + " YES")
-    print(LIGHT_RED + "2." + WHITE + " NO" + RESET)
+    print(LIGHT_RED + "2." + WHITE + " NO")
 
-def commandInput():
+def commandInput1():
     while (True):
         Input = int(input(WHITE + ">> " + RESET))
         if (Input == 1 or Input == 2):
             break
         else:
             print(LIGHT_RED + "\nPlease enter a valid input! (1/2)" + RESET)
+
+    return Input
+
+def commandInput2():
+    while (True):
+        Input = int(input(WHITE + ">> " + RESET))
+        if (Input == 1 or Input == 2 or Input == 3):
+            break
+        else:
+            print(LIGHT_RED + "\nPlease enter a valid input! (1/2/3)" + RESET)
 
     return Input
 
