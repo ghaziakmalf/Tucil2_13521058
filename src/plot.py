@@ -23,14 +23,14 @@ def plot(points, point1, point2, saveConfig):
             plt.scatter(point2[0], 0, c='red')
             xLine = [point1[0], point2[0]]
             yLine = [0, 0]
-            plt.plot(xLine, yLine)
+            plt.plot(xLine, yLine, c='red')
         elif len(point) == 2:
             plt.scatter(x, y, c='black', alpha=1)
             plt.scatter(point1[0], point1[1], c='red')
             plt.scatter(point2[0], point2[1], c='red')
             xLine = [point1[0], point2[0]]
             yLine = [point1[1], point2[1]]
-            plt.plot(xLine, yLine)
+            plt.plot(xLine, yLine, c='red')
         elif len(point) == 3:
             ax = fig.add_subplot(111, projection='3d')
             x.remove(point1[0])
