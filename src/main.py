@@ -45,8 +45,8 @@ def main():
         if (algorithm == 1) or (algorithm == 3):
             startBF = time.time()
 
-            points = sort(points)
-            minDistanceBF, point1BF, point2BF, nCalculationBF = bruteforce(points)
+            pointsBF = sort(points)
+            minDistanceBF, point1BF, point2BF, nCalculationBF = bruteforce(pointsBF)
 
             endBF = time.time()
 
@@ -58,13 +58,13 @@ def main():
             print(WHITE + "Number of calculation: " + YELLOW + "{}".format(nCalculationBF))
             print(WHITE + "Execution time: " + YELLOW + "{:.2f} ms".format((endBF - startBF) * 1000))
             print(WHITE + "Processor: " + YELLOW + "{}".format(platform.processor()) + RESET)
-            plot("BRUTE FORCE", points, point1BF, point2BF, None)
+            plot("BRUTE FORCE", pointsBF, point1BF, point2BF, None)
         
         if (algorithm == 2) or (algorithm == 3):
             startDnC = time.time()
 
-            points = sort(points)
-            minDistanceDnC, point1DnC, point2DnC, nCalculationDnC = dividenconquer(points)
+            pointsDnC = sort(points)
+            minDistanceDnC, point1DnC, point2DnC, nCalculationDnC = dividenconquer(pointsDnC)
 
             endDnC = time.time()
 
@@ -76,7 +76,7 @@ def main():
             print(WHITE + "Number of calculation: " + YELLOW + "{}".format(nCalculationDnC))
             print(WHITE + "Execution time: " + YELLOW + "{:.2f} ms".format((endDnC - startDnC) * 1000))
             print(WHITE + "Processor: " + YELLOW + "{}".format(platform.processor()) + RESET)
-            plot("DIVIDE AND CONQUER", points, point1BF, point2BF, None)
+            plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, None)
 
         print("")
         commandSave()
@@ -91,7 +91,10 @@ def main():
 
             if (algorithm == 1):
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "w") as f:
-                    f.write("==============" + " BRUTE FORCE " + "===============\n")
+                    f.write("Points:\n")
+                    for i in range(len(pointsBF)):
+                        f.write("(" + ", ".join("{:.2f}".format(p) for p in pointsBF[i]) + ")\n")
+                    f.write("\n==============" + " BRUTE FORCE " + "===============\n")
                     f.write("Two points with shortest distance: \n")
                     f.write("Point 1: " + ", ".join("{:.2f}".format(p) for p in point1BF) + "\n")
                     f.write("Point 2: " + ", ".join("{:.2f}".format(p) for p in point2BF) + "\n")
@@ -99,10 +102,13 @@ def main():
                     f.write("Number of calculation: " + "{}".format(nCalculationBF) + "\n")
                     f.write("Execution time: " + "{:.2f} ms".format((endBF - startBF) * 1000) + "\n")
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
-                plot("BRUTE FORCE", points, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + ".png")
+                plot("BRUTE FORCE", pointsBF, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + ".png")
 
             elif (algorithm == 2):
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "a") as f:
+                    f.write("Points:\n")
+                    for i in range(len(pointsDnC)):
+                        f.write("(" + ", ".join("{:.2f}".format(p) for p in pointsDnC[i]) + ")\n")
                     f.write("\n===========" + " DIVIDE AND CONQUER " + "===========\n")
                     f.write("Two points with shortest distance:\n")
                     f.write("Point 1: " + ", ".join("{:.2f}".format(p) for p in point1DnC) + "\n")
@@ -111,11 +117,15 @@ def main():
                     f.write("Number of calculation: " + "{}".format(nCalculationDnC) + "\n")
                     f.write("Execution time: " + "{:.2f} ms".format((endDnC - startDnC) * 1000) + "\n")
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
-                plot("DIVIDE AND CONQUER", points, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + ".png")
+                plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, "test/" + saveConfig + "/" + saveConfig + ".png")
             
             else:
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "w") as f:
-                    f.write("==============" + " BRUTE FORCE " + "===============\n")
+                    f.write("Points:\n")
+                    for i in range(len(points)):
+                        f.write("(" + ", ".join("{:.2f}".format(p) for p in points[i]) + ")\n")
+                        
+                    f.write("\n==============" + " BRUTE FORCE " + "===============\n")
                     f.write("Two points with shortest distance: \n")
                     f.write("Point 1: " + ", ".join("{:.2f}".format(p) for p in point1BF) + "\n")
                     f.write("Point 2: " + ", ".join("{:.2f}".format(p) for p in point2BF) + "\n")
@@ -123,7 +133,7 @@ def main():
                     f.write("Number of calculation: " + "{}".format(nCalculationBF) + "\n")
                     f.write("Execution time: " + "{:.2f} ms".format((endBF - startBF) * 1000) + "\n")
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
-                    f.write("")
+
                     f.write("\n===========" + " DIVIDE AND CONQUER " + "===========\n")
                     f.write("Two points with shortest distance:\n")
                     f.write("Point 1: " + ", ".join("{:.2f}".format(p) for p in point1DnC) + "\n")
@@ -132,8 +142,8 @@ def main():
                     f.write("Number of calculation: " + "{}".format(nCalculationDnC) + "\n")
                     f.write("Execution time: " + "{:.2f} ms".format((endDnC - startDnC) * 1000) + "\n")
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
-                plot("BRUTE FORCE", points, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + "BF.png")
-                plot("DIVIDE AND CONQUER", points, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + "DnC.png")
+                plot("BRUTE FORCE", pointsBF, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + "BF.png")
+                plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, "test/" + saveConfig + "/" + saveConfig + "DnC.png")
             
             print(LIGHT_GREEN + "\nFile saved!" + RESET)
 
