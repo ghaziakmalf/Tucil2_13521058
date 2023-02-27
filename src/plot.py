@@ -35,12 +35,18 @@ def plot(title, points, point1, point2, saveConfig):
             plt.title(title)
         elif len(point) == 3:
             ax = fig.add_subplot(111, projection='3d')
-            x.remove(point1[0])
-            x.remove(point2[0])
-            y.remove(point1[1])
-            y.remove(point2[1])
-            z.remove(point1[2])
-            z.remove(point2[2])
+            if (point1[0]) in x:
+                x.remove(point1[0])
+            if (point1[1]) in y:
+                y.remove(point1[1])
+            if (point1[2]) in z:
+                z.remove(point1[2])
+            if (point2[0]) in x:
+                x.remove(point2[0])
+            if (point2[1]) in y:
+                y.remove(point2[1])
+            if (point2[2]) in z:
+                z.remove(point2[2])
             ax.scatter(x, y, z, c='black', alpha=1)
             ax.scatter(point1[0], point1[1], point1[2], c='red')
             ax.scatter(point2[0], point2[1], point2[2], c='red')
