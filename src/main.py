@@ -29,7 +29,8 @@ def main():
         start = time.time()
 
         points = sort(points)
-        minDistance, point1, point2 = dividenconquer(points)
+        minDistance, point1, point2, nCalculation = dividenconquer(points)
+        print(nCalculation)
 
         end = time.time()
 
@@ -40,6 +41,8 @@ def main():
         if (save == 1):
             saveConfig = input(str(WHITE + "\nInput Filename: " + RESET))
 
+            if not os.path.exists("test"):
+                os.mkdir("test")
             if not os.path.exists("test/" + saveConfig):
                 os.mkdir("test/" + saveConfig)
 
