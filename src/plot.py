@@ -67,7 +67,7 @@ def plot(title, points, point1, point2, saveConfig):
 
     else:
         if saveConfig is None:
-            print(WHITE + "Not visualizable!\n" + RESET)
+            print(WHITE + "Not visualizable!" + RESET)
         else:
             img = Image.new('RGB', (640, 480), color = 'white')
 
