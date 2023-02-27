@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
 from colors import *
 
-def plot(points, point1, point2, saveConfig):
+def plot(title, points, point1, point2, saveConfig):
     x = []
     y = []
     z = []
@@ -24,6 +24,7 @@ def plot(points, point1, point2, saveConfig):
             xLine = [point1[0], point2[0]]
             yLine = [0, 0]
             plt.plot(xLine, yLine, c='red')
+            plt.title(title)
         elif len(point) == 2:
             plt.scatter(x, y, c='black', alpha=1)
             plt.scatter(point1[0], point1[1], c='red')
@@ -31,6 +32,7 @@ def plot(points, point1, point2, saveConfig):
             xLine = [point1[0], point2[0]]
             yLine = [point1[1], point2[1]]
             plt.plot(xLine, yLine, c='red')
+            plt.title(title)
         elif len(point) == 3:
             ax = fig.add_subplot(111, projection='3d')
             x.remove(point1[0])
@@ -47,6 +49,7 @@ def plot(points, point1, point2, saveConfig):
             yLine = [point1[1], point2[1]]
             zLine = [point1[2], point2[2]]
             ax.plot(xLine, yLine, zLine, c='red')
+            ax.set_title(title)
             ax.set_xlabel('X')
             ax.set_ylabel('Y')
             ax.set_zlabel('Z')
