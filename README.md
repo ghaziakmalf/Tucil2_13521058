@@ -1,5 +1,16 @@
 # Finding the Closest Point Pair with _Divide and Conquer_ Algorithm
 
+## Table of Contents
+- [Finding the Closest Point Pair with _Divide and Conquer_ Algorithm](#finding-the-closest-point-pair-with-divide-and-conquer-algorithm)
+  - [Table of Contents](#table-of-contents)
+  - [Program Description](#program-description)
+  - [Algorithm](#algorithm)
+  - [Requirements](#requirements)
+  - [Libraries](#libraries)
+  - [Program Structure](#program-structure)
+  - [How To Run](#how-to-run)
+  - [Author](#author)
+
 ## Program Description
 In short, the _Divide and Conquer_ algorithm has the principle of breaking the existing problem into several small parts so that it is easier to solve. The general steps of the Divide and Conquer algorithm are:
 
@@ -9,15 +20,15 @@ In short, the _Divide and Conquer_ algorithm has the principle of breaking the e
 
 In this project, the author was tasked to develop an algorithm to find a pair of closest points in the 3D plane. Suppose there are n points in 3D space. Each point P in space is represented by coordinates P = (x, y, z). Find a pair of points that are the shortest distance from each other.
 
-## Algorithm Used
+## Algorithm
 - Brute Force (for comparison)
 - Divide and Conquer
 
-## Program Requirement
+## Requirements
 - Python (tested version 3.11.0)
 - Install all libraries used below
 
-## Libraries Used
+## Libraries
 - math
 - time
 - random
