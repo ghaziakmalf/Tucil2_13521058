@@ -47,7 +47,8 @@ def main():
         else:
             print("")
             while (True):
-                fileName = input(WHITE + "Input file name (inside test folder): " + RESET)
+                print(LIGHT_GREEN + "Input format (example.txt). Put inside 'test' folder." + RESET)
+                fileName = input(WHITE + "Input Filename: " + RESET)
                 if os.path.isfile("test/" + fileName):
                     file = open("test/" + fileName, "r")
                     for line in file:
@@ -167,7 +168,8 @@ def main():
                 plot("BRUTE FORCE", pointsBF, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + "BF.png")
                 plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, "test/" + saveConfig + "/" + saveConfig + "DnC.png")
             
-            print(LIGHT_GREEN + "\nFile saved!" + RESET)
+            print(LIGHT_GREEN + "\nAdditional Information Added into txt File" + RESET)
+            print(LIGHT_GREEN + "File saved!" + RESET)
 
         print(LIGHT_GREEN + "\nDo you want to try again?\n" + RESET)
         commandStart()
