@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
 from colors import *
 
-# Plotting Matplotlib
+# Plot Matplotlib
 def plot(title, points, point1, point2, saveConfig):
     x = []
     y = []

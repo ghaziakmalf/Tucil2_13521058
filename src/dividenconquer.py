@@ -2,10 +2,12 @@ from utility import distance
 
 # Divide and conquer algorithm
 def dividenconquer(points, nCalculation = 0):
+    # Calculate the distance between two points if there are 2 points
     if len(points) == 2:
         nCalculation += 1
         return distance(points[0], points[1]), points[0], points[1], nCalculation
     
+    # Brute force if there are 3 points
     elif len(points) == 3:
         minDistance = distance(points[0], points[1])
         point1 = points[0]
@@ -20,6 +22,7 @@ def dividenconquer(points, nCalculation = 0):
                     point2 = points[j]
         return minDistance, point1, point2, nCalculation
     
+    # Recursive if there are more than 3 points
     else:
         mid = len(points) // 2
         leftMinDistance, leftPoint1, leftPoint2, nCalculation = dividenconquer(points[:mid], nCalculation)
