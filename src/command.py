@@ -32,21 +32,29 @@ def commandSave():
 
 def commandInput1():
     while (True):
-        Input = int(input(WHITE + ">> " + RESET))
-        if (Input == 1 or Input == 2):
-            break
-        else:
-            print(LIGHT_RED + "\nPlease enter a valid input! (1/2)" + RESET)
+        Input = input(WHITE + ">> " + RESET)
+        try:
+            Input = int(Input)
+            if (Input == 1 or Input == 2):
+                break
+            else:
+                print(LIGHT_RED + "\nPlease enter a valid input! (1/2)" + RESET)
+        except ValueError:
+            print(LIGHT_RED + "\nInput is not an integer! Please re-enter." + RESET)
 
     return Input
 
 def commandInput2():
     while (True):
-        Input = int(input(WHITE + ">> " + RESET))
-        if (Input == 1 or Input == 2 or Input == 3):
-            break
-        else:
-            print(LIGHT_RED + "\nPlease enter a valid input! (1/2/3)" + RESET)
+        Input = input(WHITE + ">> " + RESET)
+        try:
+            Input = int(Input)
+            if (Input == 1 or Input == 2 or Input == 3):
+                break
+            else:
+                print(LIGHT_RED + "\nPlease enter a valid input! (1/2/3)" + RESET)
+        except ValueError:
+            print(LIGHT_RED + "\nInput is not an integer! Please re-enter." + RESET)
 
     return Input
 
