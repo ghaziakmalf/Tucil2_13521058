@@ -1,0 +1,25 @@
+Points:
+(1.00, 2.00, 3.00)
+(4.00, 5.00, 6.00)
+(7.00, 8.00, 9.00)
+(1.10, 2.20, 3.30)
+(4.40, 5.50, 6.60)
+(7.70, 8.80, 9.90)
+
+============== BRUTE FORCE ===============
+Two points with shortest distance: 
+Point 1: 1.00, 2.00, 3.00
+Point 2: 1.10, 2.20, 3.30
+Distance: 0.37
+Number of calculation: 15
+Execution time: 0.00 ms
+Processor: AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+
+=========== DIVIDE AND CONQUER ===========
+Two points with shortest distance:
+Point 1: 1.00, 2.00, 3.00
+Point 2: 1.10, 2.20, 3.30
+Distance: 0.37
+Number of calculation: 6
+Execution time: 0.00 ms
+Processor: AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
