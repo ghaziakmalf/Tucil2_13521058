@@ -60,7 +60,7 @@ def pointInput():
             else:
                 break
         except ValueError:
-            print(LIGHT_RED + "\nInput is not a number! Please re-enter." + RESET)
+            print(LIGHT_RED + "\nInput is not an integer! Please re-enter." + RESET)
 
     while (True):
         dimension = input(WHITE + "Enter the number of dimensions: " + RESET)
