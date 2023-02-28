@@ -42,6 +42,20 @@ In this project, the author was tasked to develop an algorithm to find a pair of
 |   ├── splash.py
 │   └── utility.py
 ├── test/
+│   ├── TestCase1/
+│   ├── TestCase2/
+│   ├── TestCase3/
+│   ├── TestCase4/
+│   ├── TestCase5/
+│   ├── TestCase6/
+|   ├── TestCase7/
+|   ├── TestCase8/
+|   ├── TestCase9/
+|   ├── TestCase10/
+|   ├── TestCase11/
+|   ├── TestCase12/
+|   ├── TestOutput/
+│   └── TestInput.txt
 ├── .gitignore
 ├── README.md
 ├── RunnerPy.bat
