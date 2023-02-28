@@ -49,7 +49,7 @@ In this project, the author was tasked to develop an algorithm to find a pair of
 ```
 
 ## How To Run
-To run the program in the terminal _root directory_, run the command _RunnerPy.bat_ or _RunnerPython_ (on windows). The runner used depends on the latest version of python on the PC (you can check using 'py --version' and 'python --version'), because on some PCs there is a difference between using py and python.
+To run the program in the terminal _root directory_, run the command __RunnerPy.bat__ or __RunnerPython.bat__ (on windows). The runner used depends on the latest version of python on the PC (you can check using 'py --version' and 'python --version'), because on some PCs there is a difference between using py and python.
 ```
 ./RunnerPy.bat
 
