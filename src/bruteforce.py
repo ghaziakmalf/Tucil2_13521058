@@ -1,5 +1,6 @@
 from utility import distance
 
+# Brute force algorithm
 def bruteforce(points):
     minDistance = distance(points[0], points[1])
     point1 = points[0]

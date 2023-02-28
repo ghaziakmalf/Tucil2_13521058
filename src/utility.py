@@ -1,11 +1,13 @@
 import math
 
+# Calculate the distance between two points
 def distance(point1, point2):
     dis = 0
     for i in range(len(point1)):
         dis += (point1[i] - point2[i]) ** 2
     return math.sqrt(dis)
 
+# Sort the points
 def sort(points):
     if len(points) <= 1:
         return points

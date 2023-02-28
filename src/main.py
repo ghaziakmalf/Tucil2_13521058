@@ -12,16 +12,22 @@ from dividenconquer import *
 from bruteforce import *
 
 def main():
+    # Show splash screen
     splash()
+
+    # Start program
     commandStart()
     process = commandInput1()
 
+    # Loop until user exit
     while (process == 1):
+        # Pick input option
         print("")
         commandInputOption()
         option = commandInput2()
         points = []
 
+        # Option 1: Random input
         if (option == 1):
             nPoint, dimension = pointInput()
             for i in range(nPoint):
@@ -29,6 +35,8 @@ def main():
                 for j in range(dimension):
                     point.append(random.uniform(lowerLimit, upperLimit))
                 points.append(point)
+
+        # Option 2: Manual input
         elif (option == 2):
             nPoint, dimension = pointInput()
             print("")
@@ -44,6 +52,8 @@ def main():
                         except ValueError:
                             print(LIGHT_RED + "\nInput is not a number! Please re-enter.\n" + RESET)
                 points.append(point)
+        
+        # Option 3: File input
         else:
             print("")
             while (True):
@@ -61,18 +71,24 @@ def main():
                 else:
                     print(LIGHT_RED + "\nFile not found! Please re-enter.\n" + RESET)
 
+        # Pick algorithm
         print("")
         commandAlgorithm()
         algorithm = commandInput2()
 
+        # Brute Force
         if (algorithm == 1) or (algorithm == 3):
+            # Start timer
             startBF = time.time()
 
+            # Main algorithm
             pointsBF = sort(points)
             minDistanceBF, point1BF, point2BF, nCalculationBF = bruteforce(pointsBF)
 
+            # End timer
             endBF = time.time()
 
+            # Display result
             print(WHITE + "\n==============" + LIGHT_RED + " BRUTE FORCE " + WHITE + "===============")
             print(WHITE + "Two points with shortest distance: ")
             print(WHITE + "Point 1: " + YELLOW + ", ".join("{:.2f}".format(p) for p in point1BF))
@@ -83,14 +99,19 @@ def main():
             print(WHITE + "Processor: " + YELLOW + "{}".format(platform.processor()) + RESET)
             plot("BRUTE FORCE", pointsBF, point1BF, point2BF, None)
         
+        # Divide and Conquer
         if (algorithm == 2) or (algorithm == 3):
+            # Start timer
             startDnC = time.time()
 
+            # Main algorithm
             pointsDnC = sort(points)
             minDistanceDnC, point1DnC, point2DnC, nCalculationDnC = dividenconquer(pointsDnC)
 
+            # End timer
             endDnC = time.time()
 
+            # Display result
             print(WHITE + "\n===========" + LIGHT_RED + " DIVIDE AND CONQUER " + WHITE + "===========")
             print(WHITE + "Two points with shortest distance:")
             print(WHITE + "Point 1: " + YELLOW + ", ".join("{:.2f}".format(p) for p in point1DnC))
@@ -101,9 +122,12 @@ def main():
             print(WHITE + "Processor: " + YELLOW + "{}".format(platform.processor()) + RESET)
             plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, None)
 
+        # Save option
         print("")
         commandSave()
         save = commandInput1()
+
+        # Save to file
         if (save == 1):
             saveConfig = input(str(WHITE + "\nInput Filename: " + RESET))
 
@@ -112,6 +136,7 @@ def main():
             if not os.path.exists("test/" + saveConfig):
                 os.mkdir("test/" + saveConfig)
 
+            # Save Brute Force
             if (algorithm == 1):
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "w") as f:
                     f.write("Points:\n")
@@ -127,6 +152,7 @@ def main():
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
                 plot("BRUTE FORCE", pointsBF, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + ".png")
 
+            # Save Divide and Conquer
             elif (algorithm == 2):
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "a") as f:
                     f.write("Points:\n")
@@ -142,6 +168,7 @@ def main():
                     f.write("Processor: " + "{}".format(platform.processor()) + "\n")
                 plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, "test/" + saveConfig + "/" + saveConfig + ".png")
             
+            # Save both
             else:
                 with open("test/" + saveConfig + "/" + saveConfig + ".txt", "w") as f:
                     f.write("Points:\n")
@@ -168,9 +195,11 @@ def main():
                 plot("BRUTE FORCE", pointsBF, point1BF, point2BF, "test/" + saveConfig + "/" + saveConfig + "BF.png")
                 plot("DIVIDE AND CONQUER", pointsDnC, point1DnC, point2DnC, "test/" + saveConfig + "/" + saveConfig + "DnC.png")
             
+            # Display message file saved
             print(LIGHT_GREEN + "\nAdditional Information Added into txt File" + RESET)
             print(LIGHT_GREEN + "File saved!" + RESET)
 
+        # Try again option, continue loop if yes
         print(LIGHT_GREEN + "\nDo you want to try again?\n" + RESET)
         commandStart()
         process = commandInput1()

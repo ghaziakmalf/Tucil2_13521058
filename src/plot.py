@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
 from colors import *
 
+# Plotting Matplotlib
 def plot(title, points, point1, point2, saveConfig):
     x = []
     y = []
@@ -16,6 +17,7 @@ def plot(title, points, point1, point2, saveConfig):
 
     fig = plt.figure()
     if len(point) <= 3:
+        # 1D plot
         if len(point) == 1:
             y = [0] * len(x)
             plt.scatter(x, y, c='black', alpha=1)
@@ -25,6 +27,8 @@ def plot(title, points, point1, point2, saveConfig):
             yLine = [0, 0]
             plt.plot(xLine, yLine, c='red')
             plt.title(title)
+
+        # 2D plot
         elif len(point) == 2:
             plt.scatter(x, y, c='black', alpha=1)
             plt.scatter(point1[0], point1[1], c='red')
@@ -33,6 +37,8 @@ def plot(title, points, point1, point2, saveConfig):
             yLine = [point1[1], point2[1]]
             plt.plot(xLine, yLine, c='red')
             plt.title(title)
+
+        # 3D plot
         elif len(point) == 3:
             ax = fig.add_subplot(111, projection='3d')
             if (point1[0]) in x:
@@ -60,12 +66,14 @@ def plot(title, points, point1, point2, saveConfig):
             ax.set_ylabel('Y')
             ax.set_zlabel('Z')
 
+        # Show or save plot
         if saveConfig is None:
             plt.show()
         else:
             plt.savefig(saveConfig)
 
     else:
+        # Show or save plot not visualizable
         if saveConfig is None:
             print(WHITE + "Not visualizable!" + RESET)
         else:

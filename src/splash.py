@@ -1,6 +1,7 @@
 import time
 from colors import *
 
+# Splash Screen
 def splash():
     print(LIGHT_GREEN)
     print("    /$$      /$$/$$$$$$$$/$$       /$$$$$$  /$$$$$$ /$$      /$$/$$$$$$$$/$$")

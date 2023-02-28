@@ -1,5 +1,6 @@
 from utility import distance
 
+# Divide and conquer algorithm
 def dividenconquer(points, nCalculation = 0):
     if len(points) == 2:
         nCalculation += 1

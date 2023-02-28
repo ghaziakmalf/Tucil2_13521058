@@ -1,5 +1,6 @@
 from colors import *
 
+# Start/Exit
 def commandStart():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "|               START/EXIT               |")
@@ -7,6 +8,7 @@ def commandStart():
     print(LIGHT_RED + "1." + WHITE + " START")
     print(LIGHT_RED + "2." + WHITE + " EXIT")
 
+# Pick algorithm
 def commandAlgorithm():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "|             PICK ALGORITHM             |")
@@ -15,6 +17,7 @@ def commandAlgorithm():
     print(LIGHT_RED + "2." + WHITE + " DIVIDE AND CONQUER")
     print(LIGHT_RED + "3." + WHITE + " BOTH")
 
+# Input options
 def commandInputOption():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "|             INPUT OPTIONS              |")
@@ -23,6 +26,7 @@ def commandInputOption():
     print(LIGHT_RED + "2." + WHITE + " MANUAL")
     print(LIGHT_RED + "3." + WHITE + " FILE")
 
+# Save solution
 def commandSave():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "|             SAVE SOLUTION?             |")
@@ -30,6 +34,7 @@ def commandSave():
     print(LIGHT_RED + "1." + WHITE + " YES")
     print(LIGHT_RED + "2." + WHITE + " NO")
 
+# 1/2 Input command
 def commandInput1():
     while (True):
         Input = input(WHITE + ">> " + RESET)
@@ -44,6 +49,7 @@ def commandInput1():
 
     return Input
 
+# 1/2/3 Input command
 def commandInput2():
     while (True):
         Input = input(WHITE + ">> " + RESET)
@@ -58,6 +64,7 @@ def commandInput2():
 
     return Input
 
+# nPoint and dimension input
 def pointInput():
     while (True):
         nPoint = input(WHITE + "\nEnter the number of points: " + RESET)
