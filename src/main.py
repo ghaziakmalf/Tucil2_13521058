@@ -17,26 +17,48 @@ def main():
     process = commandInput1()
 
     while (process == 1):
-        nPoint, dimension = pointInput()
-
         print("")
         commandInputOption()
-        option = commandInput1()
+        option = commandInput2()
         points = []
 
         if (option == 1):
+            nPoint, dimension = pointInput()
             for i in range(nPoint):
                 point = []
                 for j in range(dimension):
                     point.append(random.uniform(lowerLimit, upperLimit))
                 points.append(point)
-        else:
+        elif (option == 2):
+            nPoint, dimension = pointInput()
             print("")
             for i in range(nPoint):
                 point = []
                 for j in range(dimension):
-                    point.append(float(input(str(WHITE + "Input Point " + str(i+1) + " Dimension " + str(j+1) + ": " + RESET))))
+                    while True:
+                        inputNumber = input(WHITE + "Input Point " + str(i+1) + " Dimension " + str(j+1) + ": " + RESET)
+                        try:
+                            inputNumber = float(inputNumber)
+                            point.append(inputNumber)
+                            break
+                        except ValueError:
+                            print(LIGHT_RED + "\nInput is not a number! Please re-enter.\n" + RESET)
                 points.append(point)
+        else:
+            print("")
+            while (True):
+                fileName = input(WHITE + "Input file name (inside test folder): " + RESET)
+                if os.path.isfile("test/" + fileName):
+                    file = open("test/" + fileName, "r")
+                    for line in file:
+                        point = []
+                        for i in line.split():
+                            point.append(float(i))
+                        points.append(point)
+                    file.close()
+                    break
+                else:
+                    print(LIGHT_RED + "\nFile not found! Please re-enter.\n" + RESET)
 
         print("")
         commandAlgorithm()
