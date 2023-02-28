@@ -21,6 +21,7 @@ def commandInputOption():
     print(WHITE     + "==========================================")
     print(LIGHT_RED + "1." + WHITE + " RANDOM")
     print(LIGHT_RED + "2." + WHITE + " MANUAL")
+    print(LIGHT_RED + "3." + WHITE + " FILE")
 
 def commandSave():
     print(WHITE     + "==========================================")
@@ -51,17 +52,25 @@ def commandInput2():
 
 def pointInput():
     while (True):
-        nPoint = int(input(WHITE + "\nEnter the number of points: " + RESET))
-        if nPoint < 2:
-            print(LIGHT_RED + "\nThe minimum number of points is 2! Please re-enter." + RESET)
-        else:
-            break
+        nPoint = input(WHITE + "\nEnter the number of points: " + RESET)
+        try:
+            nPoint = int(nPoint)
+            if nPoint < 2:
+                print(LIGHT_RED + "\nThe minimum number of points is 2! Please re-enter." + RESET)
+            else:
+                break
+        except ValueError:
+            print(LIGHT_RED + "\nInput is not a number! Please re-enter." + RESET)
 
     while (True):
-        dimension = int(input(WHITE + "Enter the number of dimensions: " + RESET))
-        if dimension < 1:
-            print(LIGHT_RED + "\nThe minimum number of dimensions is 1! Please re-enter.\n" + RESET)
-        else:
-            break
+        dimension = input(WHITE + "Enter the number of dimensions: " + RESET)
+        try:
+            dimension = int(dimension)
+            if dimension < 1:
+                print(LIGHT_RED + "\nThe minimum number of dimensions is 1! Please re-enter.\n" + RESET)
+            else:
+                break
+        except ValueError:
+            print(LIGHT_RED + "\nInput is not a number! Please re-enter.\n" + RESET)
 
     return nPoint, dimension
